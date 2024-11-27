@@ -10,8 +10,8 @@ public class LibroPrincipal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Categoria categoria = new Categoria(1, "categoria", "descripcion");
-		Autor autor = new Autor(1, "nombre", "apellido", "ecuador", "direccion", "9999999999", "correo");
+		Categoria categoria = new Categoria(1, "Deportes", "descripcion");
+		Autor autor = new Autor(1, "Felipe", "Castro", "ecuador", "direccion", "9999999999", "correo");
 		Libro libro = new Libro();
 		libro.setIdLibro(1);
 		libro.setTitulo("titulo");

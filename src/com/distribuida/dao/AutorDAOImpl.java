@@ -1,11 +1,7 @@
 package com.distribuida.dao;
-
 import java.util.List;
-
 import com.distribuida.entities.Autor;
-
 import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

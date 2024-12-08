@@ -2,22 +2,54 @@ package com.distribuida.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "libro")
 public class Libro {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_libro")
 	private int idLibro;
+	@Column(name = "titulo")
 	private String titulo;
+	@Column(name = "editorial")
 	private String editorial;
+	@Column(name = "num_paginas")
 	private int numPaginas;
+	@Column(name = "edicion")
 	private String edicion;
+	@Column(name = "idioma")
 	private String idioma;
+	@Column(name = "fecha_publicacion")
 	private Date fechaPublicacion;
+	@Column(name = "descripcion")
 	private String descripcion;
+	@Column(name = "tipo_pasta")
 	private String tipoPasta;
+	@Column(name = "isbn")
 	private String isbn;
+	@Column(name = "num_ejemplares")
 	private int numEjemplares;
+	@Column(name = "portada")
 	private String portada;
+	@Column(name = "presentacion")
 	private String presentacion;
+	@Column(name = "precio")
 	private Double precio;
+	@JoinColumn(name = "id_categoria")
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private Categoria categoria;
+	@JoinColumn(name = "id_autor")
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private Autor autor;
 	
 	public Libro() { }

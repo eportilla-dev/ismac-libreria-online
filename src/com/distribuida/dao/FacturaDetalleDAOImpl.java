@@ -1,43 +1,47 @@
 package com.distribuida.dao;
+
 import java.util.List;
+
 import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import com.distribuida.entities.Cliente;
 
-@Repository
-public class ClienteDAOImpl implements ClienteDAO {
+import com.distribuida.entities.FacturaDetalle;
+
+public class FacturaDetalleDAOImpl implements FacturaDetalleDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	@Transactional
-	public List<Cliente> findAll() {
+	public List<FacturaDetalle> findAll() {
 		Session session = sessionFactory.getCurrentSession();
-		return session.createQuery("FROM Cliente", Cliente.class).getResultList();
+		return  session.createQuery("FROM FacturaDetalle", FacturaDetalle.class).getResultList();
 	}
 
 	@Override
 	@Transactional
-	public Cliente findOne(int id) {
+	public FacturaDetalle findOne(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		return session.get(Cliente.class, id);
+		return session.get(FacturaDetalle.class, id);
 	}
 
 	@Override
 	@Transactional
-	public void add(Cliente cliente) {
+	public void add(FacturaDetalle facturaDetalle) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(cliente);
+		session.saveOrUpdate(facturaDetalle);
 	}
 
 	@Override
 	@Transactional
-	public void up(Cliente cliente) {
+	public void up(FacturaDetalle facturaDetalle) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(cliente);
+		session.saveOrUpdate(facturaDetalle);
+
 	}
 
 	@Override
@@ -45,6 +49,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 	public void del(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
+
 	}
 
 }
